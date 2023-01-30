@@ -8,8 +8,6 @@ public class SaveScript : MonoBehaviour
 
     public int CurrentLevel = 0;
 
-    public string PlayerName = "";
-
     public string SavedString = "";
 
     private void Start()
@@ -22,13 +20,11 @@ public class SaveScript : MonoBehaviour
     public void SaveInt()
     {
         PlayerPrefs.SetInt("CurrentLevel", CurrentLevel);
-        PlayerPrefs.SetString("PlayerName", PlayerName);
     }
 
     public void LoadInt()
     {
         CurrentLevel = PlayerPrefs.GetInt("CurrentLevel");
-        PlayerName = PlayerPrefs.GetString("PlayerName");
     }
 
     public void SaveGame()
@@ -41,7 +37,7 @@ public class SaveScript : MonoBehaviour
         }
         if (!File.Exists(Application.dataPath + "/save.sav"))
         {
-            using (StreamWriter sw = File.CreateText(Application.persistentDataPath + "/save.sav")) ;
+            using (StreamWriter sw = File.CreateText(Application.persistentDataPath + "/save.sav")) 
             print("Creating file: " + Application.persistentDataPath + "/Save.sav");
         }
 

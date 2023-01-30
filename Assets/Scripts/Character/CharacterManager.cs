@@ -27,13 +27,14 @@ public class CharacterManager : MonoBehaviour
             return;
         if (currentCharacter != null)
         {
-            Destroy(currentCharacter);
+            currentCharacter.SetActive(false);
         }
         currentCharacter = Instantiate(characters[index], transform);
         playerController._animator = currentCharacter.GetComponentInChildren<Animator>();
         currentCharacter.transform.localPosition = Vector3.zero;
         currentCharacter.transform.localRotation = Quaternion.identity;
         currentCharacter.name = characters[index].name;
+        currentCharacter.SetActive(true);
         currentCharacterType = (CharacterTypes)index;
         CharacterType();
     }
